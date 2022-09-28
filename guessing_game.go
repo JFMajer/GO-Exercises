@@ -15,7 +15,7 @@ func main() {
 	seconds := time.Now().Unix()
 	rand.Seed(seconds)
 	ran := rand.Intn(100) + 1
-	//fmt.Printf("Random number is %v\n", ran)
+	successFlag := false
 
 	for i := 9; i >= 0; i-- {
 		fmt.Print("Please input your guess: ")
@@ -38,8 +38,12 @@ func main() {
 		} else {
 			fmt.Println("You guessed correctly!")
 			fmt.Printf("It took you %v guesses\n", 10-i)
+			successFlag = true
 			break
 		}
+	}
+	if !successFlag {
+		fmt.Printf("Random number was %v\n", ran)
 	}
 
 }
