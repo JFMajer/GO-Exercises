@@ -12,4 +12,13 @@ func main() {
 	for i, v := range notes {
 		fmt.Println(i, v)
 	}
+
+	//var myArray [5]int
+	//var mySlice []int
+	//anotherSlice := make([]string, 9)
+	//yetAnotherSlice := []int{9,8,7}
+	yetAnotherSlice := []int{9, 8, 7}
+	yetAnotherSlice = append(yetAnotherSlice, 5)
+	fmt.Println(yetAnotherSlice)
+
 }
