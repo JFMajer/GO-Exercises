@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func main() {
@@ -22,4 +23,27 @@ func main() {
 	fmt.Println(v, ok)
 	value, exist := m["b"]
 	fmt.Println(value, exist)
+	delete(m, "b")
+	value, exist = m["b"]
+	fmt.Println(value, exist)
+
+	newMap := map[string]int{"Teddy": 5, "Jenny": 4, "Bob": 3}
+	fmt.Println(newMap)
+	//maps are printed in random order
+	//therefore we are sorting keys first
+	var names []string
+	for k := range newMap {
+		names = append(names, k)
+	}
+	fmt.Println(names)
+	sort.Strings(names)
+	for _, name := range names {
+		fmt.Printf("%s got grade %v\n", name, newMap[name])
+	}
+
+	//doesn't work, need to use make function or use map literal
+	// var yetAnotherMap map[string]string
+	// yetAnotherMap["key"] = "value"
+	// fmt.Println(yetAnotherMap)  //panic: assignment to entry in nil map
+
 }
