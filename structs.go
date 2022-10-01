@@ -4,23 +4,13 @@ import (
 	"fmt"
 )
 
-type part struct {
-	description string
-	count       int
-}
-
-type car struct {
-	name     string
-	topSpeed float64
-}
-
 type subscriber struct {
 	name   string
 	rate   float64
 	active bool
 }
 
-func showSub(sub subscriber) {
+func showSub(sub *subscriber) {
 	if sub.active {
 		fmt.Printf("%s has status active with rate %.2f\n", sub.name, sub.rate)
 	} else {
@@ -28,13 +18,17 @@ func showSub(sub subscriber) {
 	}
 }
 
-func createSub(name string) subscriber {
+func createSub(name string) *subscriber {
 	var newSub subscriber
 	newSub.active = true
 	newSub.rate = 4.99
 	newSub.name = name
 
-	return newSub
+	return &newSub
+}
+
+func applyDiscount(s *subscriber) {
+	s.rate = 2.55
 }
 
 func main() {
@@ -49,23 +43,6 @@ func main() {
 	myStruct.number = 74.8
 	fmt.Printf("%.2f\n", myStruct.number)
 
-	// var subscriber struct {
-	// 	name   string
-	// 	rate   float64
-	// 	active bool
-	// }
-
-	// subscriber.name = "Bob Bobbington"
-	// subscriber.rate = 4.99
-	// subscriber.active = true
-
-	// fmt.Println(subscriber)
-
-	var porsche car
-	porsche.name = "911"
-	porsche.topSpeed = 250
-	fmt.Println(porsche)
-
 	var subscriber1 subscriber
 	subscriber1.name = "Bob"
 	subscriber1.active = true
@@ -77,10 +54,12 @@ func main() {
 	subscriber2.rate = 5.99
 
 	fmt.Println(subscriber1)
-	showSub(subscriber1)
-	showSub(subscriber2)
+	showSub(&subscriber1)
+	showSub(&subscriber2)
 
 	subscriber3 := createSub("Teddy")
+	showSub(subscriber3)
+	applyDiscount(subscriber3)
 	showSub(subscriber3)
 
 }
