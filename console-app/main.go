@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"strconv"
 
 	"github.com/eiannone/keyboard"
 )
@@ -16,7 +17,21 @@ func main() {
 	defer func() {
 		_ = keyboard.Close()
 	}()
-	fmt.Println("Type any character on the keyboard")
+
+	coffees := make(map[int]string)
+	coffees[1] = "Cappucino"
+	coffees[2] = "Latte"
+	coffees[3] = "Americano"
+	coffees[4] = "Mocca"
+	coffees[5] = "Macchiato"
+	coffees[6] = "Espresso"
+
+	fmt.Println("MENU")
+	fmt.Println("===============")
+
+	for k, v := range coffees {
+		fmt.Println(k, v)
+	}
 
 	for {
 		char, key, err := keyboard.GetSingleKey()
@@ -28,6 +43,10 @@ func main() {
 			fmt.Println("Goodbye!")
 			break
 		}
+
+		i, _ := strconv.Atoi(string(char))
+		t := fmt.Sprintf("You chose %s", coffees[i])
+		fmt.Println(t)
 
 		if key == keyboard.KeyEsc {
 			fmt.Println("You have preesed esc key")
