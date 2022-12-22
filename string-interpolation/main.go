@@ -24,7 +24,7 @@ func main() {
 	user.FavouriteNumber = getFloat("What is your favourite number?")
 
 	fmt.Printf("Your name is %s and you are %d years old\n", user.UserName, user.Age)
-	fmt.Printf("Your favourite number is %f\n", user.FavouriteNumber)
+	fmt.Printf("Your favourite number is %.2f.\n", user.FavouriteNumber)
 
 }
 
