@@ -15,9 +15,11 @@ import (
 func main() {
 
 	reader := bufio.NewReader(os.Stdin)
+	// seed random number generator
 	rand.Seed(time.Now().UnixNano())
 	min := 0
 	max := 100
+	//generate random int
 	numToGuess := rand.Intn(max-min) + min
 
 	fmt.Println("Guess a number between 0 and 100, type q to quit")
