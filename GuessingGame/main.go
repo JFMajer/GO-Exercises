@@ -35,18 +35,18 @@ func main() {
 
 		guess, err := strconv.Atoi(userInput)
 		if err != nil {
-			fmt.Println("Error during conversion")
-		}
-
-		if guess < 0 || guess > 100 {
-			fmt.Println("Please provide a number between 0 and 100")
-		} else if guess < numToGuess {
-			fmt.Println("Number to guess is higher")
-		} else if guess > numToGuess {
-			fmt.Println("Number to guess is lower")
+			fmt.Println("Error during conversion, try providing number again")
 		} else {
-			fmt.Println("Correct!")
-			break
+			if guess < 0 || guess > 100 {
+				fmt.Println("Please provide a number between 0 and 100")
+			} else if guess < numToGuess {
+				fmt.Println("Number to guess is higher")
+			} else if guess > numToGuess {
+				fmt.Println("Number to guess is lower")
+			} else {
+				fmt.Println("Correct!")
+				break
+			}
 		}
 
 	}
