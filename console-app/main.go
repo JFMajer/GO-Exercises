@@ -8,6 +8,14 @@ import (
 )
 
 func main() {
+	err := keyboard.Open()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer func() {
+		_ = keyboard.Close()
+	}()
 	fmt.Println("Type any character on the keyboard")
 
 	for {
@@ -16,15 +24,16 @@ func main() {
 			log.Fatal(err)
 		}
 
-		if key != 0 {
-			fmt.Printf("You pressed %c\n", char)
-		} else {
-
+		if char == 'q' || char == 'Q' {
+			fmt.Println("Goodbye!")
+			break
 		}
 
 		if key == keyboard.KeyEsc {
 			fmt.Println("You have preesed esc key")
 			break
+		} else {
+			fmt.Printf("You have pressed: %q\r", char)
 		}
 
 	}
