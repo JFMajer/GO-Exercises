@@ -23,9 +23,15 @@ func main() {
 	user.UserName = getString("What is your name?")
 	user.Age = getNumber("How old are you?")
 	user.FavouriteNumber = getFloat("What is your favourite number?")
+	user.OwnsACat = getCatInfo("Do you own a Cat? (type y or n)")
 
 	fmt.Printf("Your name is %s and you are %d years old\n", user.UserName, user.Age)
 	fmt.Printf("Your favourite number is %.2f.\n", user.FavouriteNumber)
+	if user.OwnsACat {
+		fmt.Println("You own a cat")
+	} else {
+		fmt.Println("You don't have a cat")
+	}
 
 }
 
@@ -73,6 +79,18 @@ func getFloat(q string) float64 {
 		}
 	}
 	return valueToReturn
+}
+
+func getCatInfo(q string) bool {
+	fmt.Println(q)
+	userInput, _ := reader.ReadString('\n')
+	userInput = strings.Replace(userInput, "\r\n", "", -1)
+	userInput = strings.Replace(userInput, "\n", "", -1)
+	if userInput == "y" || userInput == "Y" {
+		return true
+	} else {
+		return false
+	}
 }
 
 // function that converts string to int
