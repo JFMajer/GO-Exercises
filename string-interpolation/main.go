@@ -8,7 +8,6 @@ import (
 	"strings"
 )
 
-// test
 var reader *bufio.Reader = bufio.NewReader(os.Stdin)
 
 type User struct {
