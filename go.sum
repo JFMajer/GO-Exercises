@@ -2,11 +2,5 @@ github.com/JFMajer/datafile v0.0.5 h1:GQ+76Rrt17OGBXNi49n8P7Bq7rcj0Fdikh8KiIfnaN
 github.com/JFMajer/datafile v0.0.5/go.mod h1:Ax+p/N102EVHMkZbKes3PtRWFHmwC2r+jCBx8BDDlc4=
 github.com/JFMajer/keyboard v0.0.0-20220928104205-293b7aac4d6d h1:+38Ea17lOhvR37NOTb0GqxhIUmM9y27Z1YnlehuzSN8=
 github.com/JFMajer/keyboard v0.0.0-20220928104205-293b7aac4d6d/go.mod h1:BsRrddpbFbyp5SFaTvJQX9pE4LqfWLbesvOjvBIKuGw=
-github.com/JFMajer/magazine v0.0.1 h1:+xlSjZ/OQy9/IBjNnlZVMv6f6yJLoF6B2DMHFTkYdjk=
-github.com/JFMajer/magazine v0.0.1/go.mod h1:TpirgXegP+vQA/YMcc2cU0QKMXwXarXxQNnexDta/kc=
-github.com/JFMajer/magazine v0.0.2 h1:GNEql/nP1sa5LJZT+eOXLTGhP/91Ke8NWU8Oe0odUzo=
-github.com/JFMajer/magazine v0.0.2/go.mod h1:TpirgXegP+vQA/YMcc2cU0QKMXwXarXxQNnexDta/kc=
-github.com/JFMajer/magazine v0.0.3 h1:rYHlqemPJ2gCztG3n1NXcd0yKaOBZoPDdC8Vc7Zmc28=
-github.com/JFMajer/magazine v0.0.3/go.mod h1:TpirgXegP+vQA/YMcc2cU0QKMXwXarXxQNnexDta/kc=
 github.com/JFMajer/magazine v0.0.4 h1:aLynfWPris5f72+RS3Yl5U5gYQJupm+2JSdkdCbwvNw=
 github.com/JFMajer/magazine v0.0.4/go.mod h1:TpirgXegP+vQA/YMcc2cU0QKMXwXarXxQNnexDta/kc=
