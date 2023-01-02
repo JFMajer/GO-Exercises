@@ -8,12 +8,17 @@ import (
 )
 
 func main() {
-	responseSize("https://example.com")
-	responseSize("https://golang.org")
-	responseSize("https://golang.org/doc")
+	sizes := make(chan int)
+	urls := []string{"https://example.com", "https://golang.org", "https://golang.org/docs"}
+	for _, url := range urls {
+		go responseSize(url, sizes)
+	}
+	for i := 0; i < len(urls); i++ {
+		fmt.Println(<-sizes)
+	}
 }
 
-func responseSize(url string) {
+func responseSize(url string, channel chan int) {
 	fmt.Printf("Getting %s\n", url)
 	response, err := http.Get(url)
 	if err != nil {
@@ -25,5 +30,5 @@ func responseSize(url string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(len(body))
+	channel <- len(body)
 }
