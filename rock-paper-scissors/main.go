@@ -22,26 +22,40 @@ func main() {
 	playerChoice := ""
 	playerValue := -1
 
-	computerValue := rand.Intn(2)
+	computerValue := rand.Intn(3)
 
 	reader := bufio.NewReader(os.Stdin)
 
 	clearScreen()
+	fmt.Printf("Computer picked %d\n", computerValue)
 	fmt.Print("Please enter rock, paper or scissors -> ")
 	playerChoice, _ = reader.ReadString('\n')
 	// to lower case
 	playerChoice = strings.ToLower(strings.TrimSpace(playerChoice))
 
-	if playerChoice == "rock" {
+	switch playerChoice {
+	case "rock":
 		playerValue = ROCK
-	} else if playerChoice == "paper" {
+	case "paper":
 		playerValue = PAPER
-	} else if playerChoice == "scissors" {
+	case "scissors":
 		playerValue = SCISSORS
+	default:
+		fmt.Println("Invalid choice")
+	}
+
+	computerChoice := ""
+	switch computerValue {
+	case 1:
+		computerChoice = "paper"
+	case 2:
+		computerChoice = "scissors"
+	case 0:
+		computerChoice = "rock"
 	}
 
 	fmt.Println()
-	fmt.Printf("Player picked %d which is %s, computer picked %d\n", playerValue, playerChoice, computerValue)
+	fmt.Printf("Player picked %d which is %s, computer picked %d which means %s\n", playerValue, playerChoice, computerValue, computerChoice)
 
 }
 
